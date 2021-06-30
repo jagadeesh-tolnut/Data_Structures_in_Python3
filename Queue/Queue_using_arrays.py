@@ -38,4 +38,3 @@ print(q.__len__())
 q.dequeue()
 print(q.data)
 print(q.__len__())
-
