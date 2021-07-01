@@ -1,15 +1,14 @@
 class Linkedlist:
     class Node:
         __slots__ = 'element','next_node'
-
         def __init__(self,element,next_node):
             self.element = element
-            self.next = next_node
+            self.next_node = next_node
 
     def __int__(self):
-        self.size = 0
         self.head = None
         self.tail = None
+        self.size = 0
 
     def __len__(self):
         return self.size
@@ -20,8 +19,8 @@ class Linkedlist:
     def add_first(self,element):
         new_node = self.Node(element,None)
         if self.is_empty():
-            self.head=new_node
-            self.tail=new_node
+            self.head = new_node
+            self.tail = new_node
         else:
             new_node.next_node = self.head
         self.head = new_node
@@ -29,7 +28,6 @@ class Linkedlist:
 
     def add_last(self,element):
         new_node = self.Node(element,None)
-        i=0
         if self.is_empty():
             self.head = new_node
             self.tail = new_node
@@ -42,7 +40,7 @@ class Linkedlist:
         new_node = self.Node(element,None)
         tpointer = self.head
         i = 1
-        while i < pos:
+        while i < position:
             tpointer = tpointer.next_node
             i += 1
         new_node.next_node = tpointer.next_node
@@ -73,6 +71,34 @@ class Linkedlist:
             tpointer = tpointer.next
             last = tpointer.element
             self.tail.next_node = None
-            self.size -=1
+            self.size -= 1
             return last
 
+    def remove_element(self,position):
+        if self.is_empty():
+            pass
+        tpointer = self.head
+        i = 1
+        while (i<position-1):
+            tpointer = tpointer.next
+            i+=1
+        element = tpointer.next.element
+        tpointer.next = tpointer.next.next
+        self.size -= 1
+        return element
+
+    def display(self):
+        tpointer = self.head
+        while tpointer:
+            print(tpointer.element, end="-->")
+            tpointer = tpointer.next
+        print()
+
+ll = Linkedlist()
+print(ll.head)
+# ll.add_first(10)
+# ll.add_first(20)
+# ll.add_first(30)
+# ll.add_first(40)
+# ll.add_first(50)
+# ll.display()
