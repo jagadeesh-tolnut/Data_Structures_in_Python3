@@ -95,9 +95,7 @@ class Linkedlist:
             tpointer = tpointer.next_node
         print()
 
-
 ll = Linkedlist()
-
 ll.add_first(10)
 ll.add_first(20)
 ll.add_first(30)
@@ -107,4 +105,13 @@ ll.display()
 ll.add_last(100)
 ll.add_last(200)
 ll.add_last(300)
+ll.display()
+ll.add_element(25,4)
+ll.add_element(35,5)
+ll.display()
+ll.remove_first()
+ll.remove_last()
+ll.display()
+ll.remove_element(4)
+ll.remove_element(4)
 ll.display()
